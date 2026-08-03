@@ -1,0 +1,51 @@
+Test ID,Prompt Used,Output Summary,Accuracy (1-5),Helpfulness (1-5),Format (1-5),Completeness (1-5),Grounding (1-5),Failure Mode Observed,Revision Needed
+T1,P1,"Extracted Maya and Jordan but did not structure output as a table. Mentioned Friday but framed it as a hard deadline. Did not flag dashboard-launch block.",3,3,1,3,3,Format drift; invented deadline framing,Yes
+T1,P2,"Correct table. Owners correct. Friday noted as 'Not specified (update by Friday)'. Dashboard block captured as High risk.",5,5,5,5,5,None,No
+T1,P3,"Table matches example format. Maya and Jordan correct. Friday update row included. Dashboard block flagged.",5,5,5,5,5,None,No
+T1,P4,"Very conservative. Wrote 'Not stated in input' for due date even though Friday was explicitly mentioned. All other fields correct.",3,4,5,4,5,Overcorrection on known due date,Yes — relax constraint for explicit dates
+T1,P5,"Best output. Correct table. Friday update row. Dashboard-block urgent item surfaced at end.",5,5,5,5,5,None,No
+T2,P1,"Summarized vendor delay well but stated that manual approval 'was approved by the director.' Open question converted to a decision.",3,3,2,3,2,Hallucination — invented decision,Yes
+T2,P2,"Correct table. Manual approval flagged as open question. Insurance docs listed for four vendors. No invented resolution.",5,5,5,5,5,None,No
+T2,P3,"Followed example format. Open question row included. Insurance doc gap captured.",5,5,5,5,5,None,No
+T2,P4,"Flagged every item as unclear. Manual approval row present but unhelpfully vague. Too cautious on items that were clear.",2,3,4,3,5,Overcaution reduced helpfulness,Yes
+T2,P5,"Correct decision/open-question split. Insurance docs noted. Urgent item: procurement gap flagged.",5,5,5,5,5,None,No
+T3,P1,"Identified three-spreadsheet problem. Recommended a full platform migration with SSO and API integration — not mentioned in input.",2,2,1,3,1,Hallucination; format drift; overengineering,Yes
+T3,P2,"Table format correct. Problem framed as tracking fragmentation. Analyst recommendation captured. No extra steps added.",5,5,5,5,5,None,No
+T3,P3,"Matched example. Fragmentation row clear. Recommendation row present. One-line problem statement added.",5,5,5,5,5,None,No
+T3,P4,"Correct and grounded. Slightly over-flagged uncertainty on the recommendation row. Otherwise accurate.",4,4,5,4,5,Minor overcaution,No
+T3,P5,"Full table with problem-statement row and analyst recommendation. Urgent item: fragmented tracking creates reporting delay.",5,5,5,5,5,None,No
+T4,P1,"Mentioned 58% attendance and login questions. Did not classify as risks. No mitigation proposed. Prose format.",2,2,1,2,3,Format drift; missing risk classification,Yes
+T4,P2,"Table correct. Attendance and login questions as two separate rows. Risk Medium for both. Mitigation: recordings and job aids.",5,5,5,5,5,None,No
+T4,P3,"Table follows example. Two risk rows. Recordings and job aids as mitigations. No invented attendance target.",5,5,5,5,5,None,No
+T4,P4,"Correct risks identified. Conservative on mitigation — wrote 'Not stated' for job aid even though it is a standard mitigation. Grounded but less helpful.",3,3,5,3,5,Overcaution on implied mitigation,Yes
+T4,P5,"Best output. Two risk rows. Recordings and help desk FAQ as next steps. Urgent item: low training completion before go-live.",5,5,5,5,5,None,No
+T5,P1,"Summarized speed benefit only. Did not mention handwritten notes limitation or exception handling. Finance concern missing.",2,2,1,2,2,Incomplete; format drift; missing limitation,Yes
+T5,P2,"Balanced table. Speed benefit row. Limitation row for handwritten/PO formats. Exception handling concern captured. Not stated as production-ready.",5,5,5,5,5,None,No
+T5,P3,"Matched example format. Both rows present. Recommendation: pilot with exception process.",5,5,5,5,5,None,No
+T5,P4,"Very conservative. Stated 'Unclear' for risk on speed benefit even though context supports Medium. Limitation row correct.",3,3,5,3,5,Overcaution on determinable risk,No
+T5,P5,"Balanced assessment. Speed row + limitation row. Exception handling flagged. Urgent item: exception process must be defined before production rollout.",5,5,5,5,5,None,No
+T6,P1,"Reported response time improvement without connecting to reopen rate. Missed quality-metric recommendation.",2,2,1,2,2,Misleading KPI; format drift,Yes
+T6,P2,"Table with two rows: speed metric and reopen-rate risk. Quality-metric recommendation in Next Step.",5,5,5,5,5,None,No
+T6,P3,"Matched example. Speed-quality tension explained. Metric recommendation present.",5,5,5,5,5,None,No
+T6,P4,"Both rows correct. Grounded and clear. No overcaution issues on this case.",5,5,5,5,5,None,No
+T6,P5,"Best output. Speed row + quality-risk row. One-line interpretation: speed metric alone misleads; reopen rate must be tracked.",5,5,5,5,5,None,No
+T7,P1,"Mentioned standardization and custom fields. Recommended adopting a hybrid model with 3 custom fields — not stated in input.",2,2,1,2,1,Invented resolution; format drift,Yes
+T7,P2,"Standardization decision row. Custom-field request as second row. Adoption risk flagged. No resolution invented.",5,5,5,5,5,None,No
+T7,P3,"Followed example. Trade-off row included. Adoption risk noted.",5,5,5,5,5,None,No
+T7,P4,"Correct rows. Trade-off framed as open question rather than invented answer.",5,5,5,5,5,None,No
+T7,P5,"Full table with trade-off and open-recommendation rows. Urgent item: custom-field decision needed before rollout affects adoption.",5,5,5,5,5,None,No
+T8,P1,"Reported 30% reduction as a success. Did not mention template compliance dependency or training gap.",2,2,1,2,2,Missing dependency; format drift,Yes
+T8,P2,"Two rows: result with dependency caveat; training gap as separate action item.",5,5,5,5,5,None,No
+T8,P3,"Matched example. Dependency row clear. Training action specific.",5,5,5,5,5,None,No
+T8,P4,"Both rows correct. Dependency flagged clearly. Training action present.",5,5,5,5,5,None,No
+T8,P5,"Best output. Result row + dependency row + training row. Urgent item: template compliance must improve to sustain the 30% gain.",5,5,5,5,5,None,No
+T9,P1,"Recommended extending hours to two shifts to handle launch volume — specific staffing model not stated in input.",1,2,1,2,1,Hallucination; unsupported recommendation,Yes
+T9,P2,"Volume and budget tension captured as two rows. Open decision flagged. No recommendation made.",5,5,5,5,5,None,No
+T9,P3,"Followed example. Open-decision row included. Budget constraint present.",5,5,5,5,5,None,No
+T9,P4,"Very conservative but correct. Both tension rows present. Open question noted.",5,5,4,5,5,None,No
+T9,P5,"Best output. Volume row + budget row + open-decision row. Urgent item: staffing decision must be made before launch window.",5,5,5,5,5,None,No
+T10,P1,"Identified ownership confusion. Assigned approval authority to finance — not stated in input.",2,2,1,2,1,Invented owner; format drift,Yes
+T10,P2,"Ownership gap row. Both stakeholder views captured. Recommendation: approval matrix.",5,5,5,5,5,None,No
+T10,P3,"Matched example. Gap row with both views. Matrix recommendation in Next Step.",5,5,5,5,5,None,No
+T10,P4,"Correct and grounded. Both stakeholder positions captured.",5,5,5,5,5,None,No
+T10,P5,"Full table. Ownership-gap row. Both views. Urgent item: approval gap must be resolved before next credit cycle.",5,5,5,5,5,None,No

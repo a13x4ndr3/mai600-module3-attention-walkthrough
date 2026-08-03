@@ -1,39 +1,41 @@
 # AI Tool Usage Disclosure
 
 ## Student Information
-- **Student name:*Alexandre Contaldi Pasquini* 
+- **Student name:** Alexandre Contaldi Pasquini
 - **Course:** MAI 600 Natural Language Processing
-- **Module:** Module 3 - Attention & the Transformer Architecture
-- **Assignment:** Attention & Architecture Walkthrough
-- **Date:*july/26* 
+- **Module:** Module 4 — Prompting, Evaluation & Controlling LLMs
+- **Assignment:** Prompt Library & Evaluation Set
+- **Date:** July 2026
 
 ## AI Tools Used
-Check all that apply:
 
+- [x] Claude (claude.ai)
 - [ ] ChatGPT
-- [x] Claude
 - [ ] Claude Code
 - [ ] GitHub Copilot
 - [ ] OpenAI Codex
 - [ ] Gemini
-- [ ] Other: 
+- [ ] Other
 
 ## How I Used AI
-Used Claude to help generate a fictional, non-sensitive operational paragraph from my AI CRM workflow context (Axelis AI), after confirming no real or confidential data would be included
-Used Claude to suggest the column structure for the token relationship matrix and the Q/K/V explanation table
-Used Claude to review grammar and formatting in the README
+
+- Used Claude to test all five prompts against the ten evaluation cases and record the model outputs
+- Used Claude to help structure the prompt library format and the before/after improvement table
+- Used Claude to generate varied failure mode scenarios to confirm the prompts were stress-tested across different input types
 
 ## What I Verified Myself
-Read the full text sample and confirmed it contains no private, proprietary, or sensitive information
-Identified all token relationships independently by reading the paragraph carefully and applying the attention behavior categories from the assignment
-Assigned all relationship strength scores (0–3) in the manual attention matrix based on my own analysis
-Verified that all four attention behaviors are distinct and cover pronoun resolution, entity tracking, cause/effect, and long-range coreference separately
+
+- Read all model outputs for each prompt/case combination and assigned all scores independently
+- Identified failure modes based on my own analysis of what was wrong with each low-scoring output
+- Verified that invented content (deadlines, owners, decisions) was correctly flagged as hallucination rather than format drift
+- Confirmed that the final best prompt (P5) consistently outperformed P1 across all ten cases before selecting it
 
 ## What I Changed or Corrected After Using AI
-Noticed independently that "it" appears twice in the paragraph with different referents — this was not in Claude's initial suggestion and I added it as a separate analysis point in both the notebook and the README
-Expanded the reflection section on "why attention is not a perfect explanation" after reviewing the multi-head attention discussion in course materials, which went beyond what Claude initially suggested
-Revised the Q/K/V table to use examples from the Axelis AI text rather than generic cybersecurity examples
 
+- Noticed that P4 (safety/uncertainty prompt) was overcorrecting on explicit information — for example, writing "Not stated" for a Friday deadline that was clearly in the input. I added a revision note to relax the constraint for explicitly stated values and recorded this as a prompt improvement
+- Revised the "invented resolution" failure mode description after observing that P1 converted an open question into an approved decision in T2 — this was a more specific failure than generic hallucination and I separated it as its own failure mode category
+- Added the "urgent item" sentence requirement to P5 after testing showed that P2 and P3 did not surface priority ordering, which reduced helpfulness for executive audiences
 
 ## Work Ownership Statement
-I confirm that AI was used as a learning and support tool, not as a replacement for my own work. I reviewed and verified the final submission and can explain the concepts, tables, diagram, and notebook in my own words.
+
+I confirm that AI was used as a learning and support tool, not as a replacement for my own work. I reviewed and verified all outputs, assigned all scores, and wrote the failure mode analysis and reflection in my own words.
